@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/ct1.dir/consistent_task_1.cpp.o -c /Users/anvea/Documents/NSU/ParallelProgramming/Lab2/consistent_task_1.cpp",
+  "file": "/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/consistent_task_1.cpp",
+  "output": "CMakeFiles/ct1.dir/consistent_task_1.cpp.o"
+},
+{
+  "directory": "/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/build",
+  "command": "/usr/bin/clang++   -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/ct2.dir/consistent_task_2.cpp.o -c /Users/anvea/Documents/NSU/ParallelProgramming/Lab2/consistent_task_2.cpp",
+  "file": "/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/consistent_task_2.cpp",
+  "output": "CMakeFiles/ct2.dir/consistent_task_2.cpp.o"
+}
+]

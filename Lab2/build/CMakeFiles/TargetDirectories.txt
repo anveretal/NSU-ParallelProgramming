@@ -1,0 +1,4 @@
+/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/build/CMakeFiles/ct1.dir
+/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/build/CMakeFiles/ct2.dir
+/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/build/CMakeFiles/edit_cache.dir
+/Users/anvea/Documents/NSU/ParallelProgramming/Lab2/build/CMakeFiles/rebuild_cache.dir
