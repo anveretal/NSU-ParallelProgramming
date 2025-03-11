@@ -1,6 +1,14 @@
 # -march=native
 # Включает оптимизации под процессор, на котором выполняется программа.
 
+# Consistent task 1
+ct1:
+	g++-14 -O3 -march=native consistent_task_1.cpp -o ct1
+
+# Consistent task 2
+ct2:
+	g++-14 -O3 -march=native consistent_task_2.cpp -o ct2
+
 # Parallel taks 1 version 1
 pt1v1:
 	g++-14 -fopenmp -O3 -march=native -I/opt/homebrew/opt/libomp/include parallel_task_1_version_1.cpp -o pt1v1

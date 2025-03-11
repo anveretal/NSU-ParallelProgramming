@@ -14,29 +14,25 @@ using namespace std;
 
 class Matrix {
 public:
-    Matrix(int size) : _table(vector<vector<double>>(size, vector<double>(size))) {
-        _size = size;
-    }
+    Matrix(int size) : _size(size), _table(vector<double>(size * size)) {}
 
-    Matrix(int size, double value) : _table(vector<vector<double>>(size, vector<double>(size, value))) {
-        _size = size;
-    }
+    Matrix(int size, double value) : _size(size), _table(vector<double>(size * size, 1)) {}
 
     const int get_size() const {
         return _size;
     }
 
-    const vector<double> &operator[](int i) const {
-        return _table[i];
+    const double &operator()(int i, int j) const {
+        return _table[i * _size + j];
     }
 
-    vector<double> &operator[](int i) {
-        return _table[i];
+    double &operator()(int i, int j) {
+        return _table[i * _size + j];
     }
 
 private:
     int _size;
-    vector<vector<double>> _table;
+    vector<double> _table;
 };
 
 vector<double> mul_matrix_by_vector(const Matrix &matrix, const vector<double> &vec) {
@@ -44,7 +40,7 @@ vector<double> mul_matrix_by_vector(const Matrix &matrix, const vector<double> &
     #pragma omp parallel for
     for (int i = 0; i < matrix.get_size(); ++i) {
         for (int j = 0; j < vec.size(); ++j) {
-            res[i] += matrix[i][j] * vec[j];
+            res[i] += matrix(i, j) * vec[j];
         }
     }
     return res;
@@ -111,9 +107,8 @@ bool is_vectors_equal(const vector<double> &vec1, const vector<double> &vec2) {
 }
 
 void fill_matrix_2_on_main_diagonal(Matrix &matrix, int size) {
-    #pragma omp parallel for
     for (int i = 0; i < size; ++i) {
-        matrix[i][i] = 2;
+        matrix(i, i) = 2;
     }
 }
 
@@ -135,8 +130,6 @@ int main(int argc, char *argv[]) {
     }
     const int N = stoi(string(argv[1]));
     const double TAU = stod(string(argv[2]));
-
-    omp_set_num_threads(8);
 
     // Ax = b, need to find x.
     Matrix A(N, 1);

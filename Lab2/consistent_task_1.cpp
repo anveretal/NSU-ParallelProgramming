@@ -13,9 +13,9 @@ using namespace std;
 
 class Matrix {
 public:
-    Matrix(int size) : _size(size), _table(vector<double>(size)) {}
+    Matrix(int size) : _size(size), _table(vector<double>(size * size)) {}
 
-    Matrix(int size, double value) : _size(size), _table(vector<double>(size, 1)) {}
+    Matrix(int size, double value) : _size(size), _table(vector<double>(size * size, 1)) {}
 
     const int get_size() const {
         return _size;

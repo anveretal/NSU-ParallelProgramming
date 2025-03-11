@@ -3,7 +3,6 @@
 #include <vector>
 #include <cmath>
 #include <chrono>
-#include <omp.h>
 
 #define EPS 0.00001
 #define PI acos(-1.0)
@@ -14,37 +13,32 @@ using namespace std;
 
 class Matrix {
 public:
-    Matrix(int size) : _table(vector<vector<double>>(size, vector<double>(size))) {
-        _size = size;
-    }
+    Matrix(int size) : _size(size), _table(vector<double>(size)) {}
 
-    Matrix(int size, double value) : _table(vector<vector<double>>(size, vector<double>(size, value))) {
-        _size = size;
-    }
+    Matrix(int size, double value) : _size(size), _table(vector<double>(size, 1)) {}
 
     const int get_size() const {
         return _size;
     }
 
-    const vector<double> &operator[](int i) const {
-        return _table[i];
+    const double &operator()(int i, int j) const {
+        return _table[i * _size + j];
     }
 
-    vector<double> &operator[](int i) {
-        return _table[i];
+    double &operator()(int i, int j) {
+        return _table[i * _size + j];
     }
 
 private:
     int _size;
-    vector<vector<double>> _table;
+    vector<double> _table;
 };
 
 vector<double> mul_matrix_by_vector(const Matrix &matrix, const vector<double> &vec) {
     vector<double> res(matrix.get_size(), 0);
-    #pragma omp parallel for
     for (int i = 0; i < matrix.get_size(); ++i) {
         for (int j = 0; j < vec.size(); ++j) {
-            res[i] += matrix[i][j] * vec[j];
+            res[i] += matrix(i, j) * vec[j];
         }
     }
     return res;
@@ -52,7 +46,6 @@ vector<double> mul_matrix_by_vector(const Matrix &matrix, const vector<double> &
 
 vector<double> sub_vectors(const vector<double> &vec1, const vector<double> &vec2) {
     vector<double> res(vec1.size());
-    #pragma omp parallel for
     for (int i = 0; i < vec1.size(); ++i) {
         res[i] = vec1[i] - vec2[i];
     }
@@ -61,7 +54,6 @@ vector<double> sub_vectors(const vector<double> &vec1, const vector<double> &vec
 
 vector<double> mul_vector_by_scalar(const vector<double> &vec, const double scalar) {
     vector<double> res(vec.size());
-    #pragma omp parallel for
     for (int i = 0; i < vec.size(); ++i) {
         res[i] = vec[i] * scalar;
     }
@@ -80,7 +72,6 @@ vector<double> calc_next_x(const Matrix &A, const vector<double> &b, const vecto
 // sqrt(sum_i(vec[i]^2))
 double calc_norm_vector(const vector<double> &vec) {
     double sum = 0;
-    #pragma omp parallel for reduction(+:sum)
     for (int i = 0; i < vec.size(); ++i) {
         sum += vec[i] * vec[i];
     }
@@ -111,9 +102,8 @@ bool is_vectors_equal(const vector<double> &vec1, const vector<double> &vec2) {
 }
 
 void fill_matrix_2_on_main_diagonal(Matrix &matrix, int size) {
-    #pragma omp parallel for
     for (int i = 0; i < size; ++i) {
-        matrix[i][i] = 2;
+        matrix(i, i) = 2;
     }
 }
 

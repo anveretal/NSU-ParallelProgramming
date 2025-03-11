@@ -3,7 +3,6 @@
 #include <vector>
 #include <cmath>
 #include <chrono>
-#include <omp.h>
 
 #define EPS 0.00001
 #define PI acos(-1.0)
@@ -26,6 +25,10 @@ public:
         return _size;
     }
 
+    const vector<double> &operator[](int i) const {
+        return _table[i];
+    }
+
     vector<double> &operator[](int i) {
         return _table[i];
     }
@@ -35,9 +38,8 @@ private:
     vector<vector<double>> _table;
 };
 
-vector<double> mul_matrix_by_vector(Matrix &matrix, const vector<double> &vec) {
+vector<double> mul_matrix_by_vector(const Matrix &matrix, const vector<double> &vec) {
     vector<double> res(matrix.get_size(), 0);
-    #pragma omp parallel for
     for (int i = 0; i < matrix.get_size(); ++i) {
         for (int j = 0; j < vec.size(); ++j) {
             res[i] += matrix[i][j] * vec[j];
@@ -48,7 +50,6 @@ vector<double> mul_matrix_by_vector(Matrix &matrix, const vector<double> &vec) {
 
 vector<double> sub_vectors(const vector<double> &vec1, const vector<double> &vec2) {
     vector<double> res(vec1.size());
-    #pragma omp parallel for
     for (int i = 0; i < vec1.size(); ++i) {
         res[i] = vec1[i] - vec2[i];
     }
@@ -57,78 +58,60 @@ vector<double> sub_vectors(const vector<double> &vec1, const vector<double> &vec
 
 vector<double> mul_vector_by_scalar(const vector<double> &vec, const double scalar) {
     vector<double> res(vec.size());
-    #pragma omp parallel for
-    for (int i = 0; i < res.size(); ++i) {
+    for (int i = 0; i < vec.size(); ++i) {
         res[i] = vec[i] * scalar;
     }
     return res;
 }
 
-// [x]_(n+1) = [x]_n - tau * (A[x]_n - b)
-vector<double> calc_next_x(Matrix &matrix, vector<double> &b, vector<double> &x_n, double TAU) {
-    return sub_vectors(
-        x_n,
-        mul_vector_by_scalar(
-            sub_vectors(
-                mul_matrix_by_vector(matrix, x_n), b
-            ),
-            TAU
-        )
-    );
+// x_(n+1) = x_n - TAU * (Ax_n - b)
+vector<double> calc_next_x(const Matrix &A, const vector<double> &b, const vector<double> &x, const double TAU) {
+    vector<double> Ax = mul_matrix_by_vector(A, x);
+    vector<double> Ax_sub_b = sub_vectors(Ax, b);
+    vector<double> tau_mul__Ax_sub_b = mul_vector_by_scalar(Ax_sub_b, TAU);
+
+    return sub_vectors(x, tau_mul__Ax_sub_b);
 }
 
-double calc_norm_vector(vector<double> vec) {
+// sqrt(sum_i(vec[i]^2))
+double calc_norm_vector(const vector<double> &vec) {
     double sum = 0;
-    #pragma omp parallel for reduction(+:sum)
     for (int i = 0; i < vec.size(); ++i) {
         sum += vec[i] * vec[i];
     }
     return sqrt(sum);
 }
 
-double calc_accuracy(Matrix &matrix, vector<double> &b, vector<double> &x) {
-    return calc_norm_vector(sub_vectors(mul_matrix_by_vector(matrix, x), b)) / calc_norm_vector(b);
+// norm(Ax - b) / norm(b)
+double calc_accuracy(const Matrix &A, const vector<double> &b, const vector<double> &x) {
+    vector<double> Ax = mul_matrix_by_vector(A, x);
+    vector<double> Ax_sub_b = sub_vectors(Ax, b);
+    double norm_Ax_sub_b = calc_norm_vector(Ax_sub_b);
+    double norm_b = calc_norm_vector(b);
+
+    return norm_Ax_sub_b / norm_b;
 }
 
-bool is_vectors_equal(vector<double> &vec1, vector<double> &vec2) {
-    bool result = true;
-    bool has_nan = false;
-    #pragma omp parallel
-    {
-        bool local_result = true;
-        bool local_has_nan = false;
-        #pragma omp for
-        for (int i = 0; i < vec1.size(); ++i) {
-            if (isnan(vec1[i]) || isnan(vec2[i])) {
-                local_result = false;
-                local_has_nan = true;
-            }
-            if (abs(vec1[i] - vec2[i]) > EPS) {
-                local_result = false;
-            }
+bool is_vectors_equal(const vector<double> &vec1, const vector<double> &vec2) {
+    for (int i = 0; i < vec1.size(); ++i) {
+        if (isnan(vec1[i]) || isnan(vec2[i])) {
+            cout << "Nan values!" << endl;
+            return false;
         }
-        #pragma omp critical
-        {
-            result = result && local_result;
-            has_nan = has_nan || local_has_nan;
+        if (abs(vec1[i] - vec2[i]) > EPS) {
+            return false;
         }
     }
-    if (has_nan) {
-        cout << "Nan values! " << endl;
-    }
-    return result;
+    return true;
 }
 
-Matrix create_matrix_filled_1_and_2_on_main_diagonal(int size) {
-    Matrix matrix(size, 1);
-    #pragma omp parallel for
+void fill_matrix_2_on_main_diagonal(Matrix &matrix, int size) {
     for (int i = 0; i < size; ++i) {
         matrix[i][i] = 2;
     }
-    return matrix;
 }
 
-void print_vector(vector<double> &vec) {
+void print_vector(const vector<double> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size() - 1; ++i) {
         cout << vec[i] << ", ";
@@ -148,13 +131,14 @@ int main(int argc, char *argv[]) {
     const double TAU = stod(string(argv[2]));
 
     // Ax = b, need to find x.
-    Matrix matrix = create_matrix_filled_1_and_2_on_main_diagonal(N);
+    Matrix A(N, 1);
+    fill_matrix_2_on_main_diagonal(A, N);
     vector<double> b(N, N + 1);
 
     auto start_time = chrono::high_resolution_clock::now();
     vector<double> x(N, 0); // Initial vector
-    while (calc_accuracy(matrix, b, x) > EPS) {
-        x = calc_next_x(matrix, b, x, TAU);
+    while (calc_accuracy(A, b, x) >= EPS) {
+        x = calc_next_x(A, b, x, TAU);
     }
     auto end_time = chrono::high_resolution_clock::now();
 
