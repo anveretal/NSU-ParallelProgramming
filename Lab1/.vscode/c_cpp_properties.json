@@ -3,12 +3,15 @@
         {
             "name": "Mac",
             "includePath": [
-                "/opt/homebrew/opt/libomp/include",
+                // "/opt/homebrew/opt/openmpi/include",
+                // "/opt/homebrew/Cellar/mpich/4.3.0/include",
+                "/opt/homebrew/Cellar/open-mpi/5.0.7/include",
                 "${workspaceFolder}/**"
             ],
             "defines": [],
+            "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cppStandard": "c++14",
             "intelliSenseMode": "macos-clang-arm64"
         }
     ],
