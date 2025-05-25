@@ -1,0 +1,13 @@
+Installing MPE2-2.4.9B include files to /mnt/storage/home/sekireev/local/mpe2/include
+Installing MPE2-2.4.9B libraries to /mnt/storage/home/sekireev/local/mpe2/lib
+Installing MPE2-2.4.9B utility programs to /mnt/storage/home/sekireev/local/mpe2/bin
+Installing MPE2-2.4.9B configuration files to /mnt/storage/home/sekireev/local/mpe2/etc
+Installing MPE2-2.4.9B system utility programs to /mnt/storage/home/sekireev/local/mpe2/sbin
+Installing SLOG2SDK's lib
+Installing SLOG2SDK's doc
+Installing SLOG2SDK's share
+Creating SLOG2SDK's bin
+Installed SLOG2SDK in /mnt/storage/home/sekireev/local/mpe2
+/mnt/storage/home/sekireev/local/mpe2/sbin/mpeuninstall may be used to remove the installation
+Installed MPE2-2.4.9B in /mnt/storage/home/sekireev/local/mpe2
+/mnt/storage/home/sekireev/local/mpe2/sbin/mpeuninstall may be used to remove the installation

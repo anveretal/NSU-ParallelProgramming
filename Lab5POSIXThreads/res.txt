@@ -1,0 +1,149 @@
+❯ mpiexec -n 4 ./lab5               
+Starting iteration 1
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+2756
+TasksProcessed = 100
+Iteration 1 completed. Global result: 2111348016662.768799
+Starting iteration 2
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+2794
+TasksProcessed = 100
+Iteration 2 completed. Global result: 4225860681693.382812
+Starting iteration 3
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1003000000
+Actual weight = 1003000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+2770
+TasksProcessed = 100
+Iteration 3 completed. Global result: 6343539574651.976562
+Starting iteration 4
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+2744
+TasksProcessed = 100
+Iteration 4 completed. Global result: 8451724523295.921875
+Starting iteration 5
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+Expected weight = 1003000000
+Actual weight = 1003000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+2783
+TasksProcessed = 100
+Iteration 5 completed. Global result: 10563072539958.632812
+Starting iteration 6
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+2745
+TasksProcessed = 100
+Iteration 6 completed. Global result: 12677585204989.296875
+Starting iteration 7
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1003000000
+Actual weight = 1003000000
+Tasks count = 100
+2674
+TasksProcessed = 100
+Iteration 7 completed. Global result: 14795264097947.890625
+Starting iteration 8
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+2715
+TasksProcessed = 100
+Iteration 8 completed. Global result: 16903449046591.835938
+Starting iteration 9
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+Expected weight = 1003000000
+Actual weight = 1003000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+2753
+TasksProcessed = 100
+Iteration 9 completed. Global result: 19014797063254.664062
+Starting iteration 10
+Expected weight = 1000000000
+Actual weight = 1000000000
+Tasks count = 100
+Expected weight = 1001000000
+Actual weight = 1001000000
+Tasks count = 100
+Expected weight = 1002000000
+Actual weight = 1002000000
+Tasks count = 100
+
+1400000000
+1458000000

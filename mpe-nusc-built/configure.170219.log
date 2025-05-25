@@ -1,0 +1,730 @@
+Configuring MPE Profiling System with  '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+User supplied MPI implmentation (Good Luck!)
+checking for leftover Makefiles in subpackages ... none 
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking whether MPI_CC has been set ... mpicc  
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether mpif77 accepts -g... yes
+checking whether MPI_F77 has been set ... mpif77  
+checking for the linkage of the supplied MPI C definitions ... yes
+checking for the linkage of the supplied MPI F77 definitions ... yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking how to get verbose linking output from mpif77... -v
+checking for Fortran 77 libraries of mpif77...  -L/opt/intel/impi/5.0.1.035/intel64/lib/release -L/opt/intel/impi/5.0.1.035/intel64/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.3 -L/usr/lib64/gcc/x86_64-suse-linux/4.3/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/opt/intel/Compiler/11.1/072/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.3/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.3/../../.. -lmpifort -lmpi -lmpigi -ldl -lrt -lpthread -lgfortranbegin -lgfortran -lm
+checking whether mpif77 accepts the FLIBS found by autoconf... yes
+checking whether C can link with  -L/opt/intel/impi/5.0.1.035/intel64/lib/release -L/opt/intel/impi/5.0.1.035/intel64/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.3 -L/usr/lib64/gcc/x86_64-suse-linux/4.3/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/opt/intel/Compiler/11.1/072/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.3/../../../../x86_64-suse-linux/lib -L/usr/lib64/gcc/x86_64-suse-linux/4.3/../../.. -lmpifort -lmpi -lmpigi -ldl -lrt -lpthread -lgfortranbegin -lgfortran -lm... yes
+checking for linker for Fortran main programs... Use Fortran to link programs
+checking whether Fortran 77 and C objects are compatible... yes
+checking for Fortran 77 name mangling... lower underscore
+checking what libraries are needed to link Fortran programs with C routines that use stdio... none
+checking for Fortran 77 flag for library directories... -L
+checking for include directory flag for Fortran... -I
+checking how to run the C preprocessor... mpicc -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking for ranlib... ranlib
+checking whether install breaks libraries... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/mpetestlink
+config.status: creating sbin/mpetestexec
+config.status: creating sbin/mpetestexeclog
+config.status: creating sbin/mpeinstall
+config.status: creating sbin/mpecheckinstall
+config.status: WARNING:  'sbin/mpecheckinstall.in' seems to ignore the --datarootdir setting
+config.status: creating sbin/mpecheckbuild
+config.status: creating etc/mpe_help.conf
+config.status: creating etc/mpe_f77env.conf
+config.status: creating bin/mpecc
+config.status: creating bin/mpefc
+config.status: creating mpe_conf.h
+config.status: executing default-1 commands
+=== configuring in src/misc (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/misc)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+Configuring MPE Miscellaneous Library with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/misc
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking whether mpicc and cc understand -c and -o together... yes
+checking how to run the C preprocessor... mpicc -E
+checking for dbx... no
+checking for gdb... /usr/bin/gdb
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sysinfo... yes
+checking for uname... yes
+checking for gethostbyname... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking for sys/types.h... (cached) yes
+checking for sighandler_t... no
+checking for kill... yes
+checking whether kill needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/dbxerr.c
+config.status: creating mpe_misc_conf.h
+=== configuring in src/callstack (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/callstack)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+Configuring MPE CallStack Library with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/callstack
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking whether mpicc and cc understand -c and -o together... yes
+checking how to run the C preprocessor... mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking whether <execinfo.h> defines backtrace_symbols_fd() ... yes
+checking if <execinfo.h> links with -Wl,--export-dynamic ... yes
+checking for fdopen... yes
+checking whether fdopen needs a declaration... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/mpe_callstack.h
+config.status: creating etc/mpe_callstack_ldflags.conf
+config.status: creating bin/bt2line
+config.status: creating mpe_callstack_conf.h
+config.status: executing default-1 commands
+=== configuring in src/logging (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/logging)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+Configuring MPE Logging Library and Tools with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/logging
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking whether mpicc and cc understand -c and -o together... yes
+checking how to run the C preprocessor... mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether byte ordering is bigendian... no
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/bitypes.h usability... yes
+checking sys/bitypes.h presence... yes
+checking for sys/bitypes.h... yes
+checking for sys/stat.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for header that defines C99 integer types, intXX_t ... <stdint.h> 
+checking for inttypes.h... (cached) yes
+checking whether <inttypes.h> defines the PRIdXX macros ... yes
+checking if <stdint.h> can be behind system headers ... yes
+checking size of void *... 8
+checking for address-sized integer ... CLOG_int64_t
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for gethostname... yes
+checking whether gethostname needs a declaration... no
+checking for snprintf... yes
+checking whether snprintf needs a declaration... no
+checking for mkstemp... yes
+checking whether mkstemp needs a declaration... no
+checking for srand48... yes
+checking whether srand48 needs a declaration... no
+checking for lrand48... yes
+checking whether lrand48 needs a declaration... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for O_LARGEFILE for open() ... needs _LARGEFILE64_SOURCE 
+checking for O_BINARY for open() ... no
+checking for PMPI_Comm_create_keyval() ... yes
+checking for PMPI_Comm_free_keyval() ... yes
+checking for PMPI_Comm_set_attr() ... yes
+checking for PMPI_Comm_get_attr() ... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_mutex_lock in -lpthread... yes
+checking for pthread_mutex_lock/unlock in MPI ... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating include/clog_inttypes.h
+config.status: creating include/mpi_null.h
+config.status: creating include/mpe_log_thread.h
+config.status: creating etc/mpe_log.conf
+config.status: creating etc/mpe_nolog.conf
+config.status: creating etc/mpe_log_postlib.conf
+config.status: creating mpe_logging_conf.h
+=== configuring in src/wrappers (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/wrappers)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+Configuring MPE Wrapper Libraries For MPI with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/wrappers
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdarg is correct... yes
+checking if compiler accepts prototypes ... yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for safe PMPI invocations ... yes
+checking for the use of const in MPI function declaration ... yes
+configure: whether removed MPI-1 routines present:
+checking for MPI_Type_hindexed... yes
+checking for MPI_Type_struct... yes
+checking for MPI_Address... yes
+checking for incorrect use of const in removed routines... yes
+checking for the C version of MPI_Init_thread ... yes
+checking for the C version of PMPI_Init_thread ... yes
+checking for the C version of MPI_File_open() ... yes
+checking for the C version of PMPI_File_open() ... yes
+checking for ROMIO's MPIO_Request ... yes
+checking for the C version of MPI_Win_create ... yes
+checking for the C version of PMPI_Win_create ... yes
+checking for the C version of MPI_Win_lock/unlock... yes
+checking for the C version of PMPI_Win_lock/unlock... yes
+checking for the C version of MPI_Win_test... yes
+checking for the C version of PMPI_Win_test... yes
+checking for the C version of MPI_Comm_connect/accept() ... yes
+checking for the C version of PMPI_Comm_connect/accept() ... yes
+checking for the C version of MPI_Publish/Lookup_name() ... yes
+checking for the C version of PMPI_Publish/Lookup_name() ... yes
+checking for MPI_STATUS_IGNORE ... yes
+checking for MPI_STATUSES_IGNORE ... yes
+checking for MPI_Fint ... yes
+checking for MPI_F_STATUS_IGNORE ... yes
+checking for MPI_F_STATUSES_IGNORE ... yes
+checking for MPI_Comm_c2f() and MPI_Comm_f2c() ... yes
+checking for MPI_Status_c2f() and MPI_Status_f2c() ... yes
+checking for MPI_Type_c2f() and MPI_Type_f2c() ... yes
+checking for MPI_Group_c2f() and MPI_Group_f2c() ... yes
+checking for MPI_Request_c2f() and MPI_Request_f2c() ... yes
+checking for MPI_Op_c2f() and MPI_Op_f2c() ... yes
+checking for MPI_Errhandler_c2f() and MPI_Errhandler_f2c() ... yes
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether mpif77 accepts -g... yes
+checking for the Fortran version of mpir_iargc() ... no
+checking for the Fortran version of mpir_getarg() ... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_f77env.conf
+config.status: creating etc/mpe_mpilog.conf
+config.status: creating etc/mpe_mpitrace.conf
+config.status: creating mpe_wrappers_conf.h
+=== configuring in src/graphics (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/graphics)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+Configuring MPE X Graphics Library with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/graphics
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking whether mpicc and cc understand -c and -o together... yes
+checking how to run the C preprocessor... mpicc -E
+checking for X... libraries , headers 
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking size of void *... 8
+checking for long pointer... yes
+checking for system... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for MPI_Fint ... yes
+checking for MPI_Comm_c2f() and MPI_Comm_f2c() ... yes
+checking for the use of const in MPI function declaration ... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating contrib/life/Makefile
+config.status: creating contrib/mandel/Makefile
+config.status: creating contrib/mastermind/Makefile
+config.status: creating contrib/test/Makefile
+config.status: creating etc/mpe_mpianim.conf
+config.status: creating etc/mpe_graphics.conf
+config.status: creating mpe_graphics_conf.h
+=== configuring in src/collchk (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/collchk)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+Configuring MPE Collective and Datatype Checking Library with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/collchk
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking for ar... ar
+checking for ranlib... ranlib
+checking how to run the C preprocessor... mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for MPI_Datatype decoding functions ... yes
+checking for rare MPI_COMBINER_XXX types ... yes
+checking for MPI Error functions ... yes
+checking for MPI_IN_PLACE ... yes
+checking for MPI_WCHAR ... yes
+checking for MPI_SIGNED_CHAR ... yes
+checking for MPI_UNSIGNED_LONG_LONG ... yes
+checking for Fortran MPI_Datatype in C ... yes
+checking for Fortran MPI_Datatype, INTEGER related, in C ... yes
+checking for Fortran MPI_Datatype, REAL related, in C ... yes
+checking for Fortran MPI_Datatype, COMPLEXn related, in C ... yes
+checking for Fortran MPI_Datatype, 2COMPLEX related, in C ... yes
+checking for MPI_Datatype ... int
+checking for the C version of MPI_Exscan ... yes
+checking for the C version of PMPI_Exscan ... yes
+checking for the C version of MPI_Alltoallw ... yes
+checking for the C version of PMPI_Alltoallw ... yes
+checking for the C version of MPI_Reduce_scatter_block ... yes
+checking for the C version of PMPI_Reduce_scatter_block ... yes
+checking for the C version of MPI_File_open() ... yes
+checking for the C version of PMPI_File_open() ... yes
+checking for ROMIO's MPIO_Request ... yes
+checking for the C version of MPI_Win_create ... yes
+checking for the C version of PMPI_Win_create ... yes
+checking for the C version of MPI_Comm_spawn ... yes
+checking for the C version of PMPI_Comm_spawn ... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating etc/mpe_mpicheck.conf
+config.status: creating mpe_collchk_conf.h
+=== configuring in src/slog2sdk (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/slog2sdk)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/slog2sdk
+Configuring SLOG2SDK with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether install works... yes
+checking if CLASSPATH is set... no, good to go
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for java in user's PATH... found /opt/shared/java/jre1.8.0_45/bin/java
+checking if /opt/shared/java/jre1.8.0_45/bin/java runs simple java class... yes
+checking if /opt/shared/java/jre1.8.0_45/bin/java runs simple jar file... yes
+checking if /opt/shared/java/jre1.8.0_45/bin/java runs non-GUI tool... yes
+checking if /opt/shared/java/jre1.8.0_45/bin/java runs simple Swing class... yes
+checking if /opt/shared/java/jre1.8.0_45/bin/java runs simple Swing jar file... yes
+checking for Java version... java full version "1.8.0_45-b14", i.e. Java 2 SDK
+checking for cygpath... no
+configure: creating sample logfiles from source
+checking for leftover Makefiles in subpackages ... none 
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sbin/install-package
+config.status: creating bin/slog2print
+config.status: creating bin/slog2navigator
+config.status: creating bin/slog2filter
+config.status: creating bin/slog2updater
+config.status: creating bin/logconvertor
+config.status: creating bin/jumpshot
+config.status: creating bin/clogprint
+config.status: creating bin/clogTOslog2
+config.status: creating bin/clog2print
+config.status: creating bin/clog2TOslog2
+=== configuring in trace_sample (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/slog2sdk/trace_sample)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/slog2sdk/trace_sample
+Configuring TRACE_SAMPLE implementation with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking how to run the C preprocessor... mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking size of void *... 8
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking size of __int64... 0
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking whether byte ordering is bigendian... no
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for sed... sed
+checking how to print strings... printf
+checking for a sed that does not truncate output... sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by mpicc... /usr/x86_64-suse-linux/bin/ld
+checking if the linker (/usr/x86_64-suse-linux/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/x86_64-suse-linux/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... gawk
+checking command to parse /usr/bin/nm -B output from mpicc object... ok
+checking for sysroot... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if mpicc supports -fno-rtti -fno-exceptions... no
+checking for mpicc option to produce PIC... -fPIC -DPIC
+checking if mpicc PIC flag -fPIC -DPIC works... yes
+checking if mpicc static flag -static works... no
+checking if mpicc supports -c -o file.o... yes
+checking if mpicc supports -c -o file.o... (cached) yes
+checking whether the mpicc linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for malloc in -lefence... no
+checking for strstr... yes
+checking target system type... x86_64-unknown-linux-gnu
+checking for javah in user's PATH... not found
+checking for javah in user's PATH... not found
+configure: WARNING:  Invalid JNI include dir, exit! 
+=== configuring in trace_rlog (/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/slog2sdk/trace_rlog)
+configure: running /bin/sh ./configure --disable-option-checking '--prefix=/mnt/storage/home/sekireev/local/mpe2'  'CC=mpicc' 'F77=mpif77' --cache-file=/dev/null --srcdir=.
+checking for current directory name... /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/src/slog2sdk/trace_rlog
+Configuring TRACE_RLOG implementation with  '--disable-option-checking' '--prefix=/mnt/storage/home/sekireev/local/mpe2' 'CC=mpicc' 'F77=mpif77' '--cache-file=/dev/null' '--srcdir=.'
+checking gnumake... yes using --no-print-directory
+checking BSD 4.4 make... no - whew
+checking OSF V3 make... no
+checking for virtual path format... VPATH
+checking for gcc... mpicc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether mpicc accepts -g... yes
+checking for mpicc option to accept ISO C89... none needed
+checking how to run the C preprocessor... mpicc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for string.h... (cached) yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking for an ANSI C-conforming const... yes
+checking size of void *... 8
+checking size of int... 4
+checking size of long... 8
+checking size of long long... 8
+checking size of __int64... 0
+checking whether byte ordering is bigendian... no
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for sed... sed
+checking how to print strings... printf
+checking for a sed that does not truncate output... sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by mpicc... /usr/x86_64-suse-linux/bin/ld
+checking if the linker (/usr/x86_64-suse-linux/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 3458764513820540925
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/x86_64-suse-linux/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... gawk
+checking command to parse /usr/bin/nm -B output from mpicc object... ok
+checking for sysroot... no
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if mpicc supports -fno-rtti -fno-exceptions... no
+checking for mpicc option to produce PIC... -fPIC -DPIC
+checking if mpicc PIC flag -fPIC -DPIC works... yes
+checking if mpicc static flag -static works... no
+checking if mpicc supports -c -o file.o... yes
+checking if mpicc supports -c -o file.o... (cached) yes
+checking whether the mpicc linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for malloc in -lefence... no
+checking for strstr... yes
+checking target system type... x86_64-unknown-linux-gnu
+checking for javah in user's PATH... not found
+checking for javah in user's PATH... not found
+configure: WARNING:  Invalid JNI include dir, exit! 
+configure: WARNING: SLOG2SDK: No sub-package has been configured
+MPE2-2.4.9B:  "src/misc" "src/callstack" "src/logging" "src/wrappers" "src/graphics" "src/collchk" "src/slog2sdk" have been configured

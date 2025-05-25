@@ -1,0 +1,282 @@
+make --no-print-directory  build_lib_bin
+
+**** Making src/misc ....
+make --no-print-directory  build_lib_bin
+make --no-print-directory  mpe_debug_objs 
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+mpicc -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -DMPE_NOMPI -o mpehname.no -c mpehname.c
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a mpehname.no
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o decomp.po -c decomp.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpe_seq.po -c mpe_seq.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o dbxerr.po -c dbxerr.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o getgrank.po -c getgrank.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o examine.po -c examine.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o privtags.po -c privtags.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpehname.po -c mpehname.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpe_io.po -c mpe_io.c
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a decomp.po mpe_seq.po dbxerr.po getgrank.po examine.po privtags.po mpehname.po mpe_io.po
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o decompf.po -c decompf.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o mpe_seqf.po -c mpe_seqf.c
+mpicc  -I.. -I../include -I../../.. -I../../../include -DMPI_LINUX  -o getgrankf.po -c getgrankf.c
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+
+**** Making src/callstack ....
+for file in ./etc/*.conf ; do \
+	      cp -f $file /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/etc ; \
+	  done
+make --no-print-directory  build_lib_bin
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -o iterator.po -c iterator.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -o fancyprint.po -c fancyprint.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -o iterator.no -c iterator.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -o fancyprint.no -c fancyprint.c
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a iterator.no fancyprint.no
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a iterator.po fancyprint.po
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/check_callstack
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -o check_callstack.no -c check_callstack.c
+cp -f check_callstack.no mpe2tmp.o
+mpicc -Wl,--export-dynamic   -o /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/check_callstack mpe2tmp.o \
+	                         -L/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib -lmpe_nompi
+( cd bin && cp -f bt2line /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin )
+
+**** Making src/logging ....
+make --no-print-directory  build_lib_bin
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o mpi_null.no -c mpi_null.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_util.no -c clog_util.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_timer.no -c clog_timer.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_uuid.no -c clog_uuid.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_commset.no -c clog_commset.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_preamble.no -c clog_preamble.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_record.no -c clog_record.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_sync.no -c clog_sync.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_block.no -c clog_block.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_buffer.no -c clog_buffer.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_merger.no -c clog_merger.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_cache.no -c clog_cache.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_joiner.no -c clog_joiner.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog.no -c clog.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o mpe_log_thread.no -c mpe_log_thread.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o mpe_log.no -c mpe_log.c
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o mpe_log_null.no -c mpe_log_null.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o mpe_log_null.po -c mpe_log_null.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_util.po -c clog_util.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_timer.po -c clog_timer.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_uuid.po -c clog_uuid.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_commset.po -c clog_commset.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_preamble.po -c clog_preamble.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_record.po -c clog_record.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_sync.po -c clog_sync.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_block.po -c clog_block.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_buffer.po -c clog_buffer.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_merger.po -c clog_merger.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_cache.po -c clog_cache.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog_joiner.po -c clog_joiner.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o clog.po -c clog.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o mpe_log_thread.po -c mpe_log_thread.c
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o mpe_log.po -c mpe_log.c
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a mpi_null.no clog_util.no clog_timer.no clog_uuid.no clog_commset.no clog_preamble.no clog_record.no clog_sync.no clog_block.no clog_buffer.no clog_merger.no clog_cache.no clog_joiner.no clog.no mpe_log_thread.no mpe_log.no
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o mpe_logf.no -c mpe_logf.c
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi_null.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi_null.a mpi_null.no mpe_log_null.no
+make[6]: `mpe_logf.no' is up to date.
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi_null.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_null.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_null.a mpe_log_null.po
+mpicc  -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -o mpe_logf.po -c mpe_logf.c
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_null.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a clog_util.po clog_timer.po clog_uuid.po clog_commset.po clog_preamble.po clog_record.po clog_sync.po clog_block.po clog_buffer.po clog_merger.po clog_cache.po clog_joiner.po clog.po mpe_log_thread.po mpe_log.po
+make[6]: `mpe_logf.po' is up to date.
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/clog2_print /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/clog2_join /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/clog2_repair
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_print.no -c clog_print.c
+cp -f clog_print.no mpe2tmp1.o
+mpicc    -o /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/clog2_print mpe2tmp1.o \
+	                         -L/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib -lmpe_nompi
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_join.no -c clog_join.c
+cp -f clog_join.no mpe2tmp2.o
+mpicc    -o /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/clog2_join mpe2tmp2.o \
+	                         -L/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib -lmpe_nompi
+mpicc -I.. -I../../.. -I../include -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../../include   -DCLOG_NOMPI -o clog_repair.no -c clog_repair.c
+cp -f clog_repair.no mpe2tmp3.o
+mpicc    -o /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/bin/clog2_repair mpe2tmp3.o \
+	                         -L/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib -lmpe_nompi
+
+**** Making src/wrappers ....
+make --no-print-directory  build_lib_bin
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c log_mpi_util.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c log_mpi_core.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c trace_mpi_core.c
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/liblmpe.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/liblmpe.a log_mpi_util.o log_mpi_core.o
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/liblmpe.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libtmpe.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libtmpe.a trace_mpi_core.o
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libtmpe.a
+mpif77    -c mpi_f2c_consts.f
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c mpe_proff.c
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_f2cmpi.a mpi_f2c_consts.o log_mpi_util.o mpe_proff.o
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_f2cmpi.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/mpe_prof.o
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c mpe_prof.c
+make --no-print-directory  linktest_all
+make --no-print-directory  linktest_C
+
+*** Link C program with the MPI tracing library .......................... Yes.
+
+*** Link C program with the MPI logging library .......................... Yes.
+
+*** Link C program with the MPI and manual logging libraries ............. Yes.
+
+make --no-print-directory  linktest_F77
+
+*** Link F77 program with the MPI and manual logging libraries ........... Yes.
+
+
+
+**** Making src/graphics ....
+make --no-print-directory  build_lib_bin
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o mpe_graphics.no -c mpe_graphics.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o xcolor.no -c xcolor.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o xframe.no -c xframe.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o xinit.no -c xinit.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o xwmap.no -c xwmap.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o xmouse.no -c xmouse.c
+mpicc -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -DMPE_NOMPI -o xkey.no -c xkey.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o mpe_graphics.po -c mpe_graphics.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xcolor.po -c xcolor.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xframe.po -c xframe.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xinit.po -c xinit.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xwmap.po -c xwmap.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xmouse.po -c xmouse.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xkey.po -c xkey.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o visual_mess.po -c visual_mess.c
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a 
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a mpe_graphics.no xcolor.no xframe.no xinit.no xwmap.no xmouse.no xkey.no
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_nompi.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a 
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a mpe_graphics.po xcolor.po xframe.po xinit.po xwmap.po xmouse.po xkey.po
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o mpe_graphicsf.po -c mpe_graphicsf.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include    -o xmousef.po -c xmousef.c
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe.a
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libampe.a
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libampe.a visual_mess.po
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libampe.a
+make --no-print-directory  linktest_all
+make --no-print-directory  linktest_C
+
+*** Link C program with the MPI animation library ........................ Yes.
+
+*** Link C program with the X11 graphics library ......................... Yes.
+
+make --no-print-directory  linktest_F77
+
+*** Link F77 program with the X11 graphics library ....................... Yes.
+
+
+
+**** Making src/collchk ....
+make --no-print-directory  build_lib_bin
+make --no-print-directory  /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_collchk.a
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c err_han.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c is_init.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c check_buff.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c check_dims.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c check_graph.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c check_size.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_amode.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_call.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_dtype.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_high_low.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_int.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_local_leader.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_op.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_root.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_tag.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_datarep.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c same_whence.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c allgather.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c allgatherv.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c allreduce.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c alltoall.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c alltoallv.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c barrier.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c bcast.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c cart_create.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c cart_map.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c gather.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c gatherv.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c graph_create.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c graph_map.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c init.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c intercomm_create.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c intercomm_merge.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c reduce.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c reduce_scatter.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c scan.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c scatter.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c scatterv.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c finalize.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c exscan.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c reduce_scatter_blk.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c alltoallw.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_open.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_preallocate.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_all_begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_all.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_all_end.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_at_all_begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_at_all.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_at_all_end.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_ordered_begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_ordered.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_read_ordered_end.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_seek_shared.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_set_atomicity.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_set_size.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_set_view.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_all_begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_all.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_all_end.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_at_all_begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_at_all.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_at_all_end.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_ordered_begin.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_ordered.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c file_write_ordered_end.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c add_fh.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c get_fh.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c win_create.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c win_fence.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c add_win.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c get_win.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_accept.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_connect.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_create.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_disconnect.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_dup.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_spawn.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_spawn_multiple.c
+mpicc  -I.. -I../include -I/mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/include -I../../.. -I../../../include   -c comm_split.c
+ar cr /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_collchk.a *.o
+ranlib /mnt/storage/home/sekireev/distrib/mpe2-2.4.9b/lib/libmpe_collchk.a
+make --no-print-directory  linktest_all
+make --no-print-directory  linktest_C
+
+*** Link C program with the MPI collective/datatype checking library ..... Yes.
+
+make --no-print-directory  linktest_F77
+
+*** Link F77 program with the MPI collective/datatype checking library ... Yes.
+
+
+
+**** Making src/slog2sdk ....
